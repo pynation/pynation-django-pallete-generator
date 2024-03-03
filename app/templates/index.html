@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Django Pallete Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body>
+  <div class="w-screen h-screen relative">
+    <div id="colors" class="flex w-full h-full"></div>
+    <form class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 p-8 bg-zinc-100 rounded-md shadow-md"
+      hx-post="{% url 'colors' %}" hx-target="#colors">
+      {% csrf_token %}
+      <div class="mb-5">
+        <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Your idea</label>
+        <input type="text" id="text" name="text"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+          placeholder="Google's brand" required />
+      </div>
+      <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+        Submit
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>
