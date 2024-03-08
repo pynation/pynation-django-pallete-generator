@@ -2,3 +2,4 @@ Django==5.0.2
 ipython==8.22.1
 openai==1.13.3
 python-decouple==3.8
+gunicorn==21.2.0
